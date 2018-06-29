@@ -1,0 +1,788 @@
+
+ATMEGA16.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000446  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000004ba  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000004f  00800060  00800060  000004ba  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000004ba  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000004ec  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000098  00000000  00000000  00000528  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000098d  00000000  00000000  000005c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000672  00000000  00000000  00000f4d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000007e9  00000000  00000000  000015bf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000188  00000000  00000000  00001da8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000066ba  00000000  00000000  00001f30  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000218  00000000  00000000  000085ea  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000088  00000000  00000000  00008802  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  00002195  00000000  00000000  0000888a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	29 c0       	rjmp	.+82     	; 0x54 <__ctors_end>
+   2:	00 00       	nop
+   4:	37 c0       	rjmp	.+110    	; 0x74 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	35 c0       	rjmp	.+106    	; 0x74 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	bf c0       	rjmp	.+382    	; 0x18c <__vector_3>
+   e:	00 00       	nop
+  10:	31 c0       	rjmp	.+98     	; 0x74 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	2f c0       	rjmp	.+94     	; 0x74 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	ae c0       	rjmp	.+348    	; 0x176 <__vector_6>
+  1a:	00 00       	nop
+  1c:	2b c0       	rjmp	.+86     	; 0x74 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	29 c0       	rjmp	.+82     	; 0x74 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	27 c0       	rjmp	.+78     	; 0x74 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	25 c0       	rjmp	.+74     	; 0x74 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	24 c0       	rjmp	.+72     	; 0x76 <__vector_11>
+  2e:	00 00       	nop
+  30:	3d c0       	rjmp	.+122    	; 0xac <__vector_12>
+  32:	00 00       	nop
+  34:	1f c0       	rjmp	.+62     	; 0x74 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	1d c0       	rjmp	.+58     	; 0x74 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	1b c0       	rjmp	.+54     	; 0x74 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	19 c0       	rjmp	.+50     	; 0x74 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	17 c0       	rjmp	.+46     	; 0x74 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	15 c0       	rjmp	.+42     	; 0x74 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	8a c0       	rjmp	.+276    	; 0x162 <__vector_19>
+  4e:	00 00       	nop
+  50:	11 c0       	rjmp	.+34     	; 0x74 <__bad_interrupt>
+	...
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	af 3a       	cpi	r26, 0xAF	; 175
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	d3 d1       	rcall	.+934    	; 0x418 <main>
+  72:	e7 c1       	rjmp	.+974    	; 0x442 <_exit>
+
+00000074 <__bad_interrupt>:
+  74:	c5 cf       	rjmp	.-118    	; 0x0 <__vectors>
+
+00000076 <__vector_11>:
+ISR(UART_RECEIVE_INTERRUPT)
+/*************************************************************************
+Function: UART Receive Complete interrupt
+Purpose:  called when the UART has received a character
+**************************************************************************/
+{
+  76:	1f 92       	push	r1
+  78:	0f 92       	push	r0
+  7a:	0f b6       	in	r0, 0x3f	; 63
+  7c:	0f 92       	push	r0
+  7e:	11 24       	eor	r1, r1
+  80:	8f 93       	push	r24
+  82:	ef 93       	push	r30
+  84:	ff 93       	push	r31
+	uint8_t data;
+	//uint8_t usr;
+	
+	/* read UART status register and UART data register */
+	//usr  = UART_STATUS;
+	data = UART_DATA;
+  86:	8c b1       	in	r24, 0x0c	; 12
+	
+	/* calculate buffer index */
+	tmphead = (UART_RxHead + 1) & UART_RX_BUFFER_MASK;
+  88:	e0 91 61 00 	lds	r30, 0x0061	; 0x800061 <UART_RxHead>
+  8c:	ef 5f       	subi	r30, 0xFF	; 255
+  8e:	ef 71       	andi	r30, 0x1F	; 31
+	//tmphead = (UART_TxHead + 1) & UART_RX_BUFFER_MASK;
+	
+	/* store new index */
+	UART_RxHead = tmphead;
+  90:	e0 93 61 00 	sts	0x0061, r30	; 0x800061 <UART_RxHead>
+	//UART_TxHead = tmphead;
+	/* store received data in buffer */
+	UART_RxBuf[tmphead] = data;
+  94:	f0 e0       	ldi	r31, 0x00	; 0
+  96:	ec 59       	subi	r30, 0x9C	; 156
+  98:	ff 4f       	sbci	r31, 0xFF	; 255
+  9a:	80 83       	st	Z, r24
+	//UART_TxBuf[tmphead] = data;
+}
+  9c:	ff 91       	pop	r31
+  9e:	ef 91       	pop	r30
+  a0:	8f 91       	pop	r24
+  a2:	0f 90       	pop	r0
+  a4:	0f be       	out	0x3f, r0	; 63
+  a6:	0f 90       	pop	r0
+  a8:	1f 90       	pop	r1
+  aa:	18 95       	reti
+
+000000ac <__vector_12>:
+ISR(UART_TRANSMIT_INTERRUPT)
+/*************************************************************************
+Function: UART Data Register Empty interrupt
+Purpose:  called when the UART is ready to transmit the next byte
+**************************************************************************/
+{
+  ac:	1f 92       	push	r1
+  ae:	0f 92       	push	r0
+  b0:	0f b6       	in	r0, 0x3f	; 63
+  b2:	0f 92       	push	r0
+  b4:	11 24       	eor	r1, r1
+  b6:	8f 93       	push	r24
+  b8:	9f 93       	push	r25
+  ba:	ef 93       	push	r30
+  bc:	ff 93       	push	r31
+	uint8_t tmptail;
+
+	if (UART_TxHead != UART_TxTail) 
+  be:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <UART_TxHead>
+  c2:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <UART_TxTail>
+  c6:	98 17       	cp	r25, r24
+  c8:	61 f0       	breq	.+24     	; 0xe2 <__vector_12+0x36>
+	{
+		/* calculate and store new buffer index */
+		tmptail = (UART_TxTail + 1) & UART_TX_BUFFER_MASK;
+  ca:	e0 91 62 00 	lds	r30, 0x0062	; 0x800062 <UART_TxTail>
+  ce:	ef 5f       	subi	r30, 0xFF	; 255
+  d0:	ef 71       	andi	r30, 0x1F	; 31
+		UART_TxTail = tmptail;
+  d2:	e0 93 62 00 	sts	0x0062, r30	; 0x800062 <UART_TxTail>
+		/* get one byte from buffer and write it to UART */
+		UART_DATA = UART_TxBuf[tmptail];  /* start transmission */
+  d6:	f0 e0       	ldi	r31, 0x00	; 0
+  d8:	ec 57       	subi	r30, 0x7C	; 124
+  da:	ff 4f       	sbci	r31, 0xFF	; 255
+  dc:	80 81       	ld	r24, Z
+  de:	8c b9       	out	0x0c, r24	; 12
+  e0:	01 c0       	rjmp	.+2      	; 0xe4 <__vector_12+0x38>
+	}
+	else
+	{
+		/* tx buffer empty, disable UDRE interrupt */
+		//UART_CONTROL |= _BV(UART_UDRIE); // разрешить прерывание при опустошении буфера передатчика
+		UART_CONTROL &= ~_BV(UART_UDRIE); // запретить прерывание при опустошении буфера
+  e2:	55 98       	cbi	0x0a, 5	; 10
+	}
+}
+  e4:	ff 91       	pop	r31
+  e6:	ef 91       	pop	r30
+  e8:	9f 91       	pop	r25
+  ea:	8f 91       	pop	r24
+  ec:	0f 90       	pop	r0
+  ee:	0f be       	out	0x3f, r0	; 63
+  f0:	0f 90       	pop	r0
+  f2:	1f 90       	pop	r1
+  f4:	18 95       	reti
+
+000000f6 <USART_Init>:
+
+void USART_Init(void)
+{
+	UART_TxHead = 0;
+  f6:	10 92 63 00 	sts	0x0063, r1	; 0x800063 <UART_TxHead>
+	UART_TxTail = 0;
+  fa:	10 92 62 00 	sts	0x0062, r1	; 0x800062 <UART_TxTail>
+	UART_RxHead = 0;
+  fe:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <UART_RxHead>
+	UART_RxTail = 0;
+ 102:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <_edata>
+
+	// Set baud rate
+	UBRRL = BAUD_PRESCALE;// Load lower 8-bits into the low byte of the UBRR register
+ 106:	83 e3       	ldi	r24, 0x33	; 51
+ 108:	89 b9       	out	0x09, r24	; 9
+	UBRRH = (BAUD_PRESCALE >> 8); 
+ 10a:	10 bc       	out	0x20, r1	; 32
+	/* Load upper 8-bits into the high byte of the UBRR register
+    Default frame format is 8 data bits, no parity, 1 stop bit
+	to change use UCSRC, see AVR data sheet*/ 
+
+	/* Set frame format: asynchronous, 8data, no parity, 1 stop bit */
+	UCSRC = (1 << URSEL) | (3 << UCSZ0);
+ 10c:	86 e8       	ldi	r24, 0x86	; 134
+ 10e:	80 bd       	out	0x20, r24	; 32
+
+	// Enable receiver and transmitter and receive complete interrupt 
+	UCSRB = (_BV(RXCIE)|_BV(RXEN)|_BV(TXEN));
+ 110:	88 e9       	ldi	r24, 0x98	; 152
+ 112:	8a b9       	out	0x0a, r24	; 10
+ 114:	08 95       	ret
+
+00000116 <uart_getc>:
+uint8_t uart_getc(void)
+{
+	uint8_t tmptail;
+	uint8_t data;
+
+	if (UART_RxHead == UART_RxTail) 
+ 116:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <UART_RxHead>
+ 11a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+ 11e:	98 17       	cp	r25, r24
+ 120:	59 f0       	breq	.+22     	; 0x138 <uart_getc+0x22>
+	{
+		return 0x00;   /* no data available */
+	}
+	
+	/* calculate / store buffer index */
+	tmptail = (UART_RxTail + 1) & UART_RX_BUFFER_MASK;
+ 122:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <_edata>
+ 126:	ef 5f       	subi	r30, 0xFF	; 255
+ 128:	ef 71       	andi	r30, 0x1F	; 31
+	
+	UART_RxTail = tmptail;
+ 12a:	e0 93 60 00 	sts	0x0060, r30	; 0x800060 <_edata>
+	
+	/* get data from receive buffer */
+	data = UART_RxBuf[tmptail];
+ 12e:	f0 e0       	ldi	r31, 0x00	; 0
+ 130:	ec 59       	subi	r30, 0x9C	; 156
+ 132:	ff 4f       	sbci	r31, 0xFF	; 255
+ 134:	80 81       	ld	r24, Z
+
+	return data;
+ 136:	08 95       	ret
+	uint8_t tmptail;
+	uint8_t data;
+
+	if (UART_RxHead == UART_RxTail) 
+	{
+		return 0x00;   /* no data available */
+ 138:	80 e0       	ldi	r24, 0x00	; 0
+	/* get data from receive buffer */
+	data = UART_RxBuf[tmptail];
+
+	return data;
+
+} /* uart_getc */
+ 13a:	08 95       	ret
+
+0000013c <uart_putc>:
+**************************************************************************/
+void uart_putc(uint8_t data)
+{
+	uint8_t tmphead;
+		
+	tmphead = (UART_TxHead + 1) & UART_TX_BUFFER_MASK;
+ 13c:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <UART_TxHead>
+ 140:	9f 5f       	subi	r25, 0xFF	; 255
+ 142:	9f 71       	andi	r25, 0x1F	; 31
+		
+	UART_TxBuf[tmphead] = data;
+ 144:	e9 2f       	mov	r30, r25
+ 146:	f0 e0       	ldi	r31, 0x00	; 0
+ 148:	ec 57       	subi	r30, 0x7C	; 124
+ 14a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 14c:	80 83       	st	Z, r24
+	UART_TxHead = tmphead;
+ 14e:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <UART_TxHead>
+ 152:	08 95       	ret
+
+00000154 <uart_available>:
+
+uint8_t uart_available(void)
+{
+	uint8_t ret;
+	
+	ret = (UART_RX_BUFFER_SIZE + UART_RxHead - UART_RxTail) & UART_RX_BUFFER_MASK;
+ 154:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <UART_RxHead>
+ 158:	90 91 60 00 	lds	r25, 0x0060	; 0x800060 <_edata>
+	
+	return ret;
+ 15c:	89 1b       	sub	r24, r25
+} /* uart_available */
+ 15e:	8f 71       	andi	r24, 0x1F	; 31
+ 160:	08 95       	ret
+
+00000162 <__vector_19>:
+
+
+ISR(TIMER0_COMP_vect)
+{
+ 162:	1f 92       	push	r1
+ 164:	0f 92       	push	r0
+ 166:	0f b6       	in	r0, 0x3f	; 63
+ 168:	0f 92       	push	r0
+ 16a:	11 24       	eor	r1, r1
+	//
+}
+ 16c:	0f 90       	pop	r0
+ 16e:	0f be       	out	0x3f, r0	; 63
+ 170:	0f 90       	pop	r0
+ 172:	1f 90       	pop	r1
+ 174:	18 95       	reti
+
+00000176 <__vector_6>:
+// this ISR is fired whenever a match occurs
+// hence, toggle led here itself..
+ISR (TIMER1_COMPA_vect) // red_led
+{
+ 176:	1f 92       	push	r1
+ 178:	0f 92       	push	r0
+ 17a:	0f b6       	in	r0, 0x3f	; 63
+ 17c:	0f 92       	push	r0
+ 17e:	11 24       	eor	r1, r1
+	PORTD |= 0x08;
+ 180:	93 9a       	sbi	0x12, 3	; 18
+}
+ 182:	0f 90       	pop	r0
+ 184:	0f be       	out	0x3f, r0	; 63
+ 186:	0f 90       	pop	r0
+ 188:	1f 90       	pop	r1
+ 18a:	18 95       	reti
+
+0000018c <__vector_3>:
+
+ISR (TIMER2_COMP_vect) // green_led
+{
+ 18c:	1f 92       	push	r1
+ 18e:	0f 92       	push	r0
+ 190:	0f b6       	in	r0, 0x3f	; 63
+ 192:	0f 92       	push	r0
+ 194:	11 24       	eor	r1, r1
+ 196:	2f 93       	push	r18
+ 198:	3f 93       	push	r19
+ 19a:	8f 93       	push	r24
+ 19c:	9f 93       	push	r25
+	new_mul_for_green_timer--;
+ 19e:	80 91 aa 00 	lds	r24, 0x00AA	; 0x8000aa <new_mul_for_green_timer>
+ 1a2:	90 91 ab 00 	lds	r25, 0x00AB	; 0x8000ab <new_mul_for_green_timer+0x1>
+ 1a6:	01 97       	sbiw	r24, 0x01	; 1
+ 1a8:	90 93 ab 00 	sts	0x00AB, r25	; 0x8000ab <new_mul_for_green_timer+0x1>
+ 1ac:	80 93 aa 00 	sts	0x00AA, r24	; 0x8000aa <new_mul_for_green_timer>
+
+	if (new_mul_for_green_timer < (mul_for_green_timer >> 1) )
+ 1b0:	20 91 a7 00 	lds	r18, 0x00A7	; 0x8000a7 <mul_for_green_timer>
+ 1b4:	30 91 a8 00 	lds	r19, 0x00A8	; 0x8000a8 <mul_for_green_timer+0x1>
+ 1b8:	36 95       	lsr	r19
+ 1ba:	27 95       	ror	r18
+ 1bc:	82 17       	cp	r24, r18
+ 1be:	93 07       	cpc	r25, r19
+ 1c0:	10 f4       	brcc	.+4      	; 0x1c6 <__vector_3+0x3a>
+		PORTD |= 0x10;
+ 1c2:	94 9a       	sbi	0x12, 4	; 18
+ 1c4:	03 c0       	rjmp	.+6      	; 0x1cc <__vector_3+0x40>
+	else
+		PORTD &= 0xEC;
+ 1c6:	82 b3       	in	r24, 0x12	; 18
+ 1c8:	8c 7e       	andi	r24, 0xEC	; 236
+ 1ca:	82 bb       	out	0x12, r24	; 18
+
+	if (new_mul_for_green_timer < 1)
+ 1cc:	80 91 aa 00 	lds	r24, 0x00AA	; 0x8000aa <new_mul_for_green_timer>
+ 1d0:	90 91 ab 00 	lds	r25, 0x00AB	; 0x8000ab <new_mul_for_green_timer+0x1>
+ 1d4:	89 2b       	or	r24, r25
+ 1d6:	41 f4       	brne	.+16     	; 0x1e8 <__vector_3+0x5c>
+		new_mul_for_green_timer = mul_for_green_timer;
+ 1d8:	80 91 a7 00 	lds	r24, 0x00A7	; 0x8000a7 <mul_for_green_timer>
+ 1dc:	90 91 a8 00 	lds	r25, 0x00A8	; 0x8000a8 <mul_for_green_timer+0x1>
+ 1e0:	90 93 ab 00 	sts	0x00AB, r25	; 0x8000ab <new_mul_for_green_timer+0x1>
+ 1e4:	80 93 aa 00 	sts	0x00AA, r24	; 0x8000aa <new_mul_for_green_timer>
+}
+ 1e8:	9f 91       	pop	r25
+ 1ea:	8f 91       	pop	r24
+ 1ec:	3f 91       	pop	r19
+ 1ee:	2f 91       	pop	r18
+ 1f0:	0f 90       	pop	r0
+ 1f2:	0f be       	out	0x3f, r0	; 63
+ 1f4:	0f 90       	pop	r0
+ 1f6:	1f 90       	pop	r1
+ 1f8:	18 95       	reti
+
+000001fa <timer0_init>:
+
+void timer0_init(void)
+{
+	// page 83
+	//8 bit timer-counter 0
+	TCCR0 |= _BV(CS02) | _BV(CS00);	// 1024 PRESCALER
+ 1fa:	83 b7       	in	r24, 0x33	; 51
+ 1fc:	85 60       	ori	r24, 0x05	; 5
+ 1fe:	83 bf       	out	0x33, r24	; 51
+	TCCR0 |= _BV(WGM01);	// CTC MODE
+ 200:	83 b7       	in	r24, 0x33	; 51
+ 202:	88 60       	ori	r24, 0x08	; 8
+ 204:	83 bf       	out	0x33, r24	; 51
+	TCNT0 = 0;
+ 206:	12 be       	out	0x32, r1	; 50
+	OCR0 = 78;  // 10 ms
+ 208:	8e e4       	ldi	r24, 0x4E	; 78
+ 20a:	8c bf       	out	0x3c, r24	; 60
+	TIMSK |= _BV(OCIE0);	// Enable the timer0 compare interrupt
+ 20c:	89 b7       	in	r24, 0x39	; 57
+ 20e:	82 60       	ori	r24, 0x02	; 2
+ 210:	89 bf       	out	0x39, r24	; 57
+
+	TCCR0 = 0x00;
+ 212:	13 be       	out	0x33, r1	; 51
+ 214:	08 95       	ret
+
+00000216 <timer1_init>:
+// initialize timer, interrupt and variable
+void timer1_init(void) // red_led
+{
+	// 113 page data sheet Atmega16
+	// set up timer with 
+	TCCR1B |= _BV(CS10) | _BV(CS12);	// 1024 PRESCALER
+ 216:	8e b5       	in	r24, 0x2e	; 46
+ 218:	85 60       	ori	r24, 0x05	; 5
+ 21a:	8e bd       	out	0x2e, r24	; 46
+	TCCR1B |= _BV(WGM12);	// CTC(Clear Timer on Compare) MODE
+ 21c:	8e b5       	in	r24, 0x2e	; 46
+ 21e:	88 60       	ori	r24, 0x08	; 8
+ 220:	8e bd       	out	0x2e, r24	; 46
+	// initialize counter
+	TCNT1 = 0;
+ 222:	1d bc       	out	0x2d, r1	; 45
+ 224:	1c bc       	out	0x2c, r1	; 44
+	// initialize compare value
+	OCR1A = 7813; // 1 sec = ( 8 MHz / 1024 prescaler)
+ 226:	85 e8       	ldi	r24, 0x85	; 133
+ 228:	9e e1       	ldi	r25, 0x1E	; 30
+ 22a:	9b bd       	out	0x2b, r25	; 43
+ 22c:	8a bd       	out	0x2a, r24	; 42
+	// Enable the timer1 compare A interrupt
+	TIMSK |= _BV(OCIE1A); // start timer
+ 22e:	89 b7       	in	r24, 0x39	; 57
+ 230:	80 61       	ori	r24, 0x10	; 16
+ 232:	89 bf       	out	0x39, r24	; 57
+ 234:	08 95       	ret
+
+00000236 <timer2_init>:
+
+void timer2_init(void) // green_led
+{
+	// page 127
+ 	//8 bit timer-counter 1
+ 	TCCR2 |= _BV(CS22) | _BV(CS21) | _BV(CS20);	// 1024 PRESCALER
+ 236:	85 b5       	in	r24, 0x25	; 37
+ 238:	87 60       	ori	r24, 0x07	; 7
+ 23a:	85 bd       	out	0x25, r24	; 37
+ 	TCCR2 |= _BV(WGM21);	// CTC MODE
+ 23c:	85 b5       	in	r24, 0x25	; 37
+ 23e:	88 60       	ori	r24, 0x08	; 8
+ 240:	85 bd       	out	0x25, r24	; 37
+ 	TCNT2 = 0; 
+ 242:	14 bc       	out	0x24, r1	; 36
+ 	//OCR2 = 78; // 10 ms
+	OCR2 = 7; // 1 ms
+ 244:	87 e0       	ldi	r24, 0x07	; 7
+ 246:	83 bd       	out	0x23, r24	; 35
+ 	TIMSK |= _BV(OCIE2);	// Enable the timer0 compare interrupt
+ 248:	89 b7       	in	r24, 0x39	; 57
+ 24a:	80 68       	ori	r24, 0x80	; 128
+ 24c:	89 bf       	out	0x39, r24	; 57
+ 24e:	08 95       	ret
+
+00000250 <for_blue_led>:
+}
+
+void for_blue_led(void)
+{
+	if (b_command == 0x30)
+ 250:	80 91 a6 00 	lds	r24, 0x00A6	; 0x8000a6 <b_command>
+ 254:	80 33       	cpi	r24, 0x30	; 48
+ 256:	51 f4       	brne	.+20     	; 0x26c <for_blue_led+0x1c>
+	{
+		if (b_param == 0x30)
+ 258:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+ 25c:	80 33       	cpi	r24, 0x30	; 48
+ 25e:	21 f4       	brne	.+8      	; 0x268 <for_blue_led+0x18>
+			PORTD &= 0xDC; // off blue;
+ 260:	82 b3       	in	r24, 0x12	; 18
+ 262:	8c 7d       	andi	r24, 0xDC	; 220
+ 264:	82 bb       	out	0x12, r24	; 18
+ 266:	08 95       	ret
+		else
+			PORTD |= 0x20; // on blue;
+ 268:	95 9a       	sbi	0x12, 5	; 18
+ 26a:	08 95       	ret
+	}
+
+	else
+	{
+		b_param = PORTD;
+		if (b_param & 0x20)
+ 26c:	95 9b       	sbis	0x12, 5	; 18
+ 26e:	04 c0       	rjmp	.+8      	; 0x278 <for_blue_led+0x28>
+			b_param = 0x31;
+ 270:	81 e3       	ldi	r24, 0x31	; 49
+ 272:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+ 276:	08 95       	ret
+		else
+			b_param = 0x30;
+ 278:	80 e3       	ldi	r24, 0x30	; 48
+ 27a:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+ 27e:	08 95       	ret
+
+00000280 <for_green_led>:
+	}
+}
+
+void for_green_led(void)
+{
+	if (b_command == 0x32)
+ 280:	80 91 a6 00 	lds	r24, 0x00A6	; 0x8000a6 <b_command>
+ 284:	82 33       	cpi	r24, 0x32	; 50
+ 286:	79 f5       	brne	.+94     	; 0x2e6 <for_green_led+0x66>
+	{
+		if (b_param == 0x30)
+ 288:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+ 28c:	80 33       	cpi	r24, 0x30	; 48
+ 28e:	49 f4       	brne	.+18     	; 0x2a2 <for_green_led+0x22>
+		{
+			PORTD &= 0xEC; // off green_led
+ 290:	82 b3       	in	r24, 0x12	; 18
+ 292:	8c 7e       	andi	r24, 0xEC	; 236
+ 294:	82 bb       	out	0x12, r24	; 18
+			TCCR2 = 0x00;
+ 296:	15 bc       	out	0x25, r1	; 37
+			mul_for_green_timer = 0;
+ 298:	10 92 a8 00 	sts	0x00A8, r1	; 0x8000a8 <mul_for_green_timer+0x1>
+ 29c:	10 92 a7 00 	sts	0x00A7, r1	; 0x8000a7 <mul_for_green_timer>
+ 2a0:	45 c0       	rjmp	.+138    	; 0x32c <for_green_led+0xac>
+		}
+		else if (b_param == 0x31)
+ 2a2:	81 33       	cpi	r24, 0x31	; 49
+ 2a4:	39 f4       	brne	.+14     	; 0x2b4 <for_green_led+0x34>
+			mul_for_green_timer = 250;
+ 2a6:	8a ef       	ldi	r24, 0xFA	; 250
+ 2a8:	90 e0       	ldi	r25, 0x00	; 0
+ 2aa:	90 93 a8 00 	sts	0x00A8, r25	; 0x8000a8 <mul_for_green_timer+0x1>
+ 2ae:	80 93 a7 00 	sts	0x00A7, r24	; 0x8000a7 <mul_for_green_timer>
+ 2b2:	3c c0       	rjmp	.+120    	; 0x32c <for_green_led+0xac>
+		else if (b_param == 0x32)
+ 2b4:	82 33       	cpi	r24, 0x32	; 50
+ 2b6:	39 f4       	brne	.+14     	; 0x2c6 <for_green_led+0x46>
+			mul_for_green_timer = 500;
+ 2b8:	84 ef       	ldi	r24, 0xF4	; 244
+ 2ba:	91 e0       	ldi	r25, 0x01	; 1
+ 2bc:	90 93 a8 00 	sts	0x00A8, r25	; 0x8000a8 <mul_for_green_timer+0x1>
+ 2c0:	80 93 a7 00 	sts	0x00A7, r24	; 0x8000a7 <mul_for_green_timer>
+ 2c4:	33 c0       	rjmp	.+102    	; 0x32c <for_green_led+0xac>
+		else if (b_param == 0x33)
+ 2c6:	83 33       	cpi	r24, 0x33	; 51
+ 2c8:	39 f4       	brne	.+14     	; 0x2d8 <for_green_led+0x58>
+			mul_for_green_timer = 1000;
+ 2ca:	88 ee       	ldi	r24, 0xE8	; 232
+ 2cc:	93 e0       	ldi	r25, 0x03	; 3
+ 2ce:	90 93 a8 00 	sts	0x00A8, r25	; 0x8000a8 <mul_for_green_timer+0x1>
+ 2d2:	80 93 a7 00 	sts	0x00A7, r24	; 0x8000a7 <mul_for_green_timer>
+ 2d6:	2a c0       	rjmp	.+84     	; 0x32c <for_green_led+0xac>
+		else // (b_param == 0x34)
+			mul_for_green_timer = 2000;
+ 2d8:	80 ed       	ldi	r24, 0xD0	; 208
+ 2da:	97 e0       	ldi	r25, 0x07	; 7
+ 2dc:	90 93 a8 00 	sts	0x00A8, r25	; 0x8000a8 <mul_for_green_timer+0x1>
+ 2e0:	80 93 a7 00 	sts	0x00A7, r24	; 0x8000a7 <mul_for_green_timer>
+ 2e4:	23 c0       	rjmp	.+70     	; 0x32c <for_green_led+0xac>
+
+		// PORTD |= 0x10; // on gree_led
+	}
+	else
+	{
+		if ( mul_for_green_timer == 0)
+ 2e6:	80 91 a7 00 	lds	r24, 0x00A7	; 0x8000a7 <mul_for_green_timer>
+ 2ea:	90 91 a8 00 	lds	r25, 0x00A8	; 0x8000a8 <mul_for_green_timer+0x1>
+ 2ee:	00 97       	sbiw	r24, 0x00	; 0
+ 2f0:	21 f4       	brne	.+8      	; 0x2fa <for_green_led+0x7a>
+			b_param = 0x30;
+ 2f2:	80 e3       	ldi	r24, 0x30	; 48
+ 2f4:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+ 2f8:	19 c0       	rjmp	.+50     	; 0x32c <for_green_led+0xac>
+		else if (mul_for_green_timer == 250)
+ 2fa:	8a 3f       	cpi	r24, 0xFA	; 250
+ 2fc:	91 05       	cpc	r25, r1
+ 2fe:	21 f4       	brne	.+8      	; 0x308 <for_green_led+0x88>
+			b_param = 0x31;
+ 300:	81 e3       	ldi	r24, 0x31	; 49
+ 302:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+ 306:	12 c0       	rjmp	.+36     	; 0x32c <for_green_led+0xac>
+		else if(mul_for_green_timer == 500)
+ 308:	84 3f       	cpi	r24, 0xF4	; 244
+ 30a:	21 e0       	ldi	r18, 0x01	; 1
+ 30c:	92 07       	cpc	r25, r18
+ 30e:	21 f4       	brne	.+8      	; 0x318 <for_green_led+0x98>
+			b_param = 0x32;
+ 310:	82 e3       	ldi	r24, 0x32	; 50
+ 312:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+ 316:	0a c0       	rjmp	.+20     	; 0x32c <for_green_led+0xac>
+		else if(mul_for_green_timer == 1000)
+ 318:	88 3e       	cpi	r24, 0xE8	; 232
+ 31a:	93 40       	sbci	r25, 0x03	; 3
+ 31c:	21 f4       	brne	.+8      	; 0x326 <for_green_led+0xa6>
+			b_param = 0x33;
+ 31e:	83 e3       	ldi	r24, 0x33	; 51
+ 320:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+ 324:	03 c0       	rjmp	.+6      	; 0x32c <for_green_led+0xac>
+		else // mul_for_green_timer == 2000
+			b_param = 0x34;
+ 326:	84 e3       	ldi	r24, 0x34	; 52
+ 328:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+	
+	}
+
+	new_mul_for_green_timer = mul_for_green_timer;
+ 32c:	80 91 a7 00 	lds	r24, 0x00A7	; 0x8000a7 <mul_for_green_timer>
+ 330:	90 91 a8 00 	lds	r25, 0x00A8	; 0x8000a8 <mul_for_green_timer+0x1>
+ 334:	90 93 ab 00 	sts	0x00AB, r25	; 0x8000ab <new_mul_for_green_timer+0x1>
+ 338:	80 93 aa 00 	sts	0x00AA, r24	; 0x8000aa <new_mul_for_green_timer>
+
+	if(b_param != 0x00)
+ 33c:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+		timer2_init();
+ 340:	81 11       	cpse	r24, r1
+ 342:	79 cf       	rjmp	.-270    	; 0x236 <timer2_init>
+ 344:	08 95       	ret
+
+00000346 <see_buf_RX>:
+}
+
+void see_buf_RX(void)
+{
+ 346:	06 df       	rcall	.-500    	; 0x154 <uart_available>
+ 348:	80 93 ae 00 	sts	0x00AE, r24	; 0x8000ae <value>
+ 34c:	85 30       	cpi	r24, 0x05	; 5
+ 34e:	08 f4       	brcc	.+2      	; 0x352 <see_buf_RX+0xc>
+ 350:	62 c0       	rjmp	.+196    	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 352:	e1 de       	rcall	.-574    	; 0x116 <uart_getc>
+ 354:	80 93 ad 00 	sts	0x00AD, r24	; 0x8000ad <b_start>
+ 358:	82 30       	cpi	r24, 0x02	; 2
+ 35a:	09 f0       	breq	.+2      	; 0x35e <see_buf_RX+0x18>
+ 35c:	5c c0       	rjmp	.+184    	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 35e:	80 93 a9 00 	sts	0x00A9, r24	; 0x8000a9 <b_checksum>
+ 362:	d9 de       	rcall	.-590    	; 0x116 <uart_getc>
+ 364:	80 93 a6 00 	sts	0x00A6, r24	; 0x8000a6 <b_command>
+ 368:	90 ed       	ldi	r25, 0xD0	; 208
+ 36a:	98 0f       	add	r25, r24
+ 36c:	94 30       	cpi	r25, 0x04	; 4
+ 36e:	08 f0       	brcs	.+2      	; 0x372 <see_buf_RX+0x2c>
+ 370:	52 c0       	rjmp	.+164    	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 372:	90 91 a9 00 	lds	r25, 0x00A9	; 0x8000a9 <b_checksum>
+ 376:	89 0f       	add	r24, r25
+ 378:	80 93 a9 00 	sts	0x00A9, r24	; 0x8000a9 <b_checksum>
+ 37c:	cc de       	rcall	.-616    	; 0x116 <uart_getc>
+ 37e:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <b_param>
+ 382:	90 91 a9 00 	lds	r25, 0x00A9	; 0x8000a9 <b_checksum>
+ 386:	89 0f       	add	r24, r25
+ 388:	80 93 a9 00 	sts	0x00A9, r24	; 0x8000a9 <b_checksum>
+ 38c:	c4 de       	rcall	.-632    	; 0x116 <uart_getc>
+ 38e:	80 93 ae 00 	sts	0x00AE, r24	; 0x8000ae <value>
+ 392:	90 91 a9 00 	lds	r25, 0x00A9	; 0x8000a9 <b_checksum>
+ 396:	89 13       	cpse	r24, r25
+ 398:	3e c0       	rjmp	.+124    	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 39a:	bd de       	rcall	.-646    	; 0x116 <uart_getc>
+ 39c:	80 93 a5 00 	sts	0x00A5, r24	; 0x8000a5 <b_end>
+ 3a0:	86 30       	cpi	r24, 0x06	; 6
+ 3a2:	09 f0       	breq	.+2      	; 0x3a6 <see_buf_RX+0x60>
+ 3a4:	38 c0       	rjmp	.+112    	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3a6:	80 91 a6 00 	lds	r24, 0x00A6	; 0x8000a6 <b_command>
+ 3aa:	80 33       	cpi	r24, 0x30	; 48
+ 3ac:	31 f4       	brne	.+12     	; 0x3ba <see_buf_RX+0x74>
+ 3ae:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+ 3b2:	80 53       	subi	r24, 0x30	; 48
+ 3b4:	82 30       	cpi	r24, 0x02	; 2
+ 3b6:	78 f5       	brcc	.+94     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3b8:	06 c0       	rjmp	.+12     	; 0x3c6 <see_buf_RX+0x80>
+ 3ba:	81 33       	cpi	r24, 0x31	; 49
+ 3bc:	31 f4       	brne	.+12     	; 0x3ca <see_buf_RX+0x84>
+ 3be:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+ 3c2:	80 33       	cpi	r24, 0x30	; 48
+ 3c4:	41 f5       	brne	.+80     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3c6:	44 df       	rcall	.-376    	; 0x250 <for_blue_led>
+ 3c8:	0f c0       	rjmp	.+30     	; 0x3e8 <see_buf_RX+0xa2>
+ 3ca:	82 33       	cpi	r24, 0x32	; 50
+ 3cc:	31 f4       	brne	.+12     	; 0x3da <see_buf_RX+0x94>
+ 3ce:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+ 3d2:	80 53       	subi	r24, 0x30	; 48
+ 3d4:	85 30       	cpi	r24, 0x05	; 5
+ 3d6:	38 f0       	brcs	.+14     	; 0x3e6 <see_buf_RX+0xa0>
+ 3d8:	08 95       	ret
+ 3da:	83 33       	cpi	r24, 0x33	; 51
+ 3dc:	e1 f4       	brne	.+56     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3de:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+ 3e2:	80 33       	cpi	r24, 0x30	; 48
+ 3e4:	c1 f4       	brne	.+48     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3e6:	4c df       	rcall	.-360    	; 0x280 <for_green_led>
+ 3e8:	1d bc       	out	0x2d, r1	; 45
+ 3ea:	1c bc       	out	0x2c, r1	; 44
+ 3ec:	82 b3       	in	r24, 0x12	; 18
+ 3ee:	84 7f       	andi	r24, 0xF4	; 244
+ 3f0:	82 bb       	out	0x12, r24	; 18
+ 3f2:	80 91 ad 00 	lds	r24, 0x00AD	; 0x8000ad <b_start>
+ 3f6:	a2 de       	rcall	.-700    	; 0x13c <uart_putc>
+ 3f8:	80 91 a6 00 	lds	r24, 0x00A6	; 0x8000a6 <b_command>
+ 3fc:	80 5f       	subi	r24, 0xF0	; 240
+ 3fe:	9e de       	rcall	.-708    	; 0x13c <uart_putc>
+ 400:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <b_param>
+ 404:	9b de       	rcall	.-714    	; 0x13c <uart_putc>
+ 406:	80 91 a9 00 	lds	r24, 0x00A9	; 0x8000a9 <b_checksum>
+ 40a:	80 5f       	subi	r24, 0xF0	; 240
+ 40c:	97 de       	rcall	.-722    	; 0x13c <uart_putc>
+ 40e:	80 91 a5 00 	lds	r24, 0x00A5	; 0x8000a5 <b_end>
+ 412:	94 de       	rcall	.-728    	; 0x13c <uart_putc>
+ 414:	55 9a       	sbi	0x0a, 5	; 10
+ 416:	08 95       	ret
+
+00000418 <main>:
+ 418:	6e de       	rcall	.-804    	; 0xf6 <USART_Init>
+ 41a:	ef de       	rcall	.-546    	; 0x1fa <timer0_init>
+ 41c:	fc de       	rcall	.-520    	; 0x216 <timer1_init>
+ 41e:	0b df       	rcall	.-490    	; 0x236 <timer2_init>
+ 420:	78 94       	sei
+ 422:	8f ef       	ldi	r24, 0xFF	; 255
+ 424:	81 bb       	out	0x11, r24	; 17
+ 426:	12 ba       	out	0x12, r1	; 18
+ 428:	81 e0       	ldi	r24, 0x01	; 1
+ 42a:	80 93 a4 00 	sts	0x00A4, r24	; 0x8000a4 <flag>
+ 42e:	10 92 a8 00 	sts	0x00A8, r1	; 0x8000a8 <mul_for_green_timer+0x1>
+ 432:	10 92 a7 00 	sts	0x00A7, r1	; 0x8000a7 <mul_for_green_timer>
+ 436:	10 92 ab 00 	sts	0x00AB, r1	; 0x8000ab <new_mul_for_green_timer+0x1>
+ 43a:	10 92 aa 00 	sts	0x00AA, r1	; 0x8000aa <new_mul_for_green_timer>
+ 43e:	83 df       	rcall	.-250    	; 0x346 <see_buf_RX>
+ 440:	fe cf       	rjmp	.-4      	; 0x43e <main+0x26>
+
+00000442 <_exit>:
+ 442:	f8 94       	cli
+
+00000444 <__stop_program>:
+ 444:	ff cf       	rjmp	.-2      	; 0x444 <__stop_program>
